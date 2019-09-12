@@ -1,0 +1,13 @@
+apply plugin: 'com.novoda.bintray-release'
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+publish {
+    userOrg = properties.getProperty("bintray.user")
+    groupId = 'com.novoda'
+    artifactId = 'bintray-release'
+    publishVersion = '1.0.1'
+    desc = 'Oh hi, this is a nice description for a project, right?'
+    website = 'https://github.com/novoda/bintray-release'
+}

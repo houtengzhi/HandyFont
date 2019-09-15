@@ -26,7 +26,7 @@ public class FontAspect {
         Object result = joinPoint.proceed();
         Object[] args = joinPoint.getArgs();
         Object arg0 = args[0];
-        if (arg0 != null) {
+        if (HandyFontConfig.getInstance().isReplaceFont() && arg0 != null) {
             String fontFamily = (String) arg0;
             Object obj = joinPoint.getThis();
             Typeface newTypeface = HandyUtil.createTypeface(AspecUtil.getContext(obj), fontFamily);

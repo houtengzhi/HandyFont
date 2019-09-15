@@ -14,6 +14,7 @@ public class HandyFontConfig {
 
 
     private Map<String, String> mReplacedMap = new HashMap<>();
+    private boolean mIsReplace = true;
 
     public static HandyFontConfig getInstance() {
         if (instance == null) {
@@ -36,6 +37,15 @@ public class HandyFontConfig {
             mReplacedMap.remove(fontFamily);
         }
         return this;
+    }
+
+    public HandyFontConfig setReplaceEnabled(boolean enabled) {
+        mIsReplace = enabled;
+        return this;
+    }
+
+    public boolean isReplaceFont() {
+        return mIsReplace;
     }
 
     public void clearReplacedFonts() {

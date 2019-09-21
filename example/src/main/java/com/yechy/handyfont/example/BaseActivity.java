@@ -16,14 +16,13 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        HandyFontLayoutFactory factory = new HandyFontLayoutFactory(this);
-        factory.installViewFactory();
+//        HandyFontLayoutFactory factory = new HandyFontLayoutFactory(this);
+//        factory.installViewFactory();
         super.onCreate(savedInstanceState);
     }
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(newBase);
-//        super.attachBaseContext(HandyContextWrapper.wrap(newBase, this));
+        super.attachBaseContext(HandyContextWrapper.wrap(newBase, this));
     }
 }

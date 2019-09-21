@@ -157,7 +157,7 @@ public class HandyUtil {
     static boolean canCheckForV7Toolbar() {
         if (sToolbarCheck == null) {
             try {
-                Class.forName("android.support.v7.widget.Toolbar");
+                Class.forName("androidx.appcompat.widget.Toolbar");
                 sToolbarCheck = Boolean.TRUE;
             } catch (ClassNotFoundException e) {
                 sToolbarCheck = Boolean.FALSE;
@@ -174,7 +174,7 @@ public class HandyUtil {
     static boolean canAddV7AppCompatViews() {
         if (sAppCompatViewCheck == null) {
             try {
-                Class.forName("android.support.v7.widget.AppCompatTextView");
+                Class.forName("androidx.appcompat.widget.AppCompatTextView");
                 sAppCompatViewCheck = Boolean.TRUE;
             } catch (ClassNotFoundException e) {
                 sAppCompatViewCheck = Boolean.FALSE;

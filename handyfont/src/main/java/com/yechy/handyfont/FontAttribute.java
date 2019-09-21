@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.text.style.TypefaceSpan;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -41,13 +43,22 @@ public class FontAttribute {
                 tv.setTypeface(typeface, tv.getTypeface().getStyle());
             }
             if (debuggable) {
-                String text = tv.getText().toString();
-                String ntext = text + " (default font family is " + fontFamilt + ")";
-                Spannable spannable = new SpannableString(ntext);
+                final String ntext = "default font family: " + fontFamilt;
+                view.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+                    @Override
+                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+                        menu.setHeaderTitle("View Property");
+                        menu.add(1, 1, 1, ntext);
+                    }
+                });
+            }
+        }
 
-                spannable.setSpan(new TypefaceSpan(fontFamilt), ntext.length() - text.length(),
-                        ntext.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                tv.setText(spannable);
+        if (HandyUtil.canCheckForV7Toolbar() && view instanceof Toolbar) {
+            Toolbar toolbar = (Toolbar) view;
+            int childCount = toolbar.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                load(toolbar.getChildAt(i), null);
             }
         }
     }

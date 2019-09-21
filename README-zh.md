@@ -5,9 +5,12 @@
 
 >
 
+### 更新
+ 1.0.1
+
 ### Installation
 
-Add jcenter repo:
+在项目根目录下的build.gradle文件中添加
 
 ```
 allprojects {
@@ -17,7 +20,7 @@ allprojects {
 }
 ```
 
-Add dependency:
+在mudule下的build.gradle文件中添加
 
 ```
 implementation 'com.yechy.handyfont:handyfont:1.0.1'

@@ -1,7 +1,5 @@
 package com.yechy.handyfont;
 
-import android.graphics.Typeface;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,11 +8,17 @@ import java.util.Map;
  */
 public class HandyFontConfig {
 
+    private static final String TAG = HandyFontConfig.class.getSimpleName();
+
     private static HandyFontConfig instance;
 
 
     private Map<String, String> mReplacedMap = new HashMap<>();
     private boolean mIsReplace = true;
+    private boolean mDebuggable = false;
+    private boolean mLoggable = false;
+
+    public static final String NULL_FONT_FAMILY = "null_font_family";
 
     public static HandyFontConfig getInstance() {
         if (instance == null) {
@@ -32,9 +36,21 @@ public class HandyFontConfig {
         return this;
     }
 
+    public HandyFontConfig addReplaceDefaultFont(String newFontPath) {
+        mReplacedMap.put(NULL_FONT_FAMILY, newFontPath);
+        return this;
+    }
+
     public HandyFontConfig removePlacedFont(String fontFamily) {
         if (mReplacedMap != null && !isEmpty(fontFamily)) {
             mReplacedMap.remove(fontFamily);
+        }
+        return this;
+    }
+
+    public HandyFontConfig removeDefaultReplacedFont() {
+        if (mReplacedMap.containsKey(NULL_FONT_FAMILY)) {
+            mReplacedMap.remove(NULL_FONT_FAMILY);
         }
         return this;
     }
@@ -44,8 +60,26 @@ public class HandyFontConfig {
         return this;
     }
 
-    public boolean isReplaceFont() {
+    public boolean isReplaceEnabled() {
         return mIsReplace;
+    }
+
+    public HandyFontConfig setDebugEnabled(boolean enabled) {
+        mDebuggable = enabled;
+        return this;
+    }
+
+    public boolean isDebuggable() {
+        return mDebuggable;
+    }
+
+    public HandyFontConfig setLogEnabled(boolean enabled) {
+        mLoggable = enabled;
+        return this;
+    }
+
+    public boolean isLoggable() {
+        return mLoggable;
     }
 
     public void clearReplacedFonts() {

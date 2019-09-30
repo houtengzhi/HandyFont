@@ -19,6 +19,9 @@ public class TypefaceUtil {
 
     public static Typeface getReplacedTypeface(Context context, String fontFamily) {
         Map<String, String> map = HandyFontConfig.getInstance().getReplacedMap();
+        if (isEmpty(fontFamily)) {
+            fontFamily = HandyFontConfig.NULL_FONT_FAMILY;
+        }
         if (!isEmpty(fontFamily) && map.containsKey(fontFamily)) {
             String fontPath = map.get(fontFamily);
             Typeface typeface = createTypeface(context, fontPath);
@@ -32,7 +35,9 @@ public class TypefaceUtil {
             return null;
         }
 
-        String fontName = new File(fontPath).getName();
+        File file = new File(fontPath);
+        String fontName = file.getName();
+        String relativePath = file.getParent();
         if (isEmpty(fontName)) {
             return null;
         }
@@ -43,8 +48,8 @@ public class TypefaceUtil {
 
         AssetManager assetManager = context.getAssets();
         try {
-            List<String> files = Arrays.asList(assetManager.list(""));
-            if (files.contains(fontPath)) {
+            List<String> files = Arrays.asList(assetManager.list(relativePath));
+            if (files.contains(fontName)) {
                 Typeface typeface = Typeface.createFromAsset(context.getAssets(), fontPath);
                 cachedFontMap.put(fontName, typeface);
                 return typeface;

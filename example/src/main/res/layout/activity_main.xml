@@ -8,61 +8,140 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         app:title="@string/app_name"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="This text's fontfamilt is default"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="This text's fontfamilt is sans-serif"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="sans-serif"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
 
-    <TextView
-        style="@style/Headline5.Regular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="This text's fontfamilt is sans-serif"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="This text's fontfamilt is default"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:text="This text's fontfamilt is sans-serif-medium"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="sans-serif-medium"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="This text's fontfamilt is sans-serif"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        android:text="This text's fontfamilt is sans-serif-medium"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:fontFamily="sans-serif-medium"/>
+            <TextView
+                style="@style/Headline5.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="This text's fontfamilt is sans-serif"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="This text's fontfamilt is sans-serif-medium"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif-medium"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="This text's fontfamilt is sans-serif-medium"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif-medium"/>
+
+            <TextView
+                android:id="@+id/tv_context_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Context Menu"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@+id/tv_popup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Popup Window"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+            <FrameLayout
+                android:id="@+id/layout_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"/>
+
+            <Button
+                android:id="@+id/btn_alert_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="AlertDialog Button"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/btn_toast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Toast Button"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/btn_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Snackbar Button"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

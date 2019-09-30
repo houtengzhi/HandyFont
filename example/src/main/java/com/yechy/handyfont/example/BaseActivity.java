@@ -23,6 +23,7 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
+//        super.attachBaseContext(newBase);
         super.attachBaseContext(HandyContextWrapper.wrap(newBase, this));
     }
 }

@@ -15,13 +15,31 @@ public class HandyContextWrapper extends ContextWrapper {
 
     private AppCompatActivity appCompatActivity;
 
+    public static HandyContextWrapper wrap(Context base) {
+        return new HandyContextWrapper(base);
+    }
+
     public static HandyContextWrapper wrap(Context base, AppCompatActivity appCompatActivity) {
         return new HandyContextWrapper(base, appCompatActivity);
+    }
+
+    public HandyContextWrapper(Context base) {
+        super(base);
     }
 
     public HandyContextWrapper(Context base, AppCompatActivity appCompatActivity) {
         super(base);
         this.appCompatActivity = appCompatActivity;
+    }
+
+    @Override
+    public Context getBaseContext() {
+        return super.getBaseContext();
+    }
+
+    @Override
+    public Context getApplicationContext() {
+        return super.getApplicationContext();
     }
 
     @Override

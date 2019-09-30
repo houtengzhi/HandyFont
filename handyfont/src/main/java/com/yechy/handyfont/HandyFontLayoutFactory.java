@@ -35,12 +35,12 @@ public class HandyFontLayoutFactory implements LayoutInflater.Factory2 {
         }
     }
 
-    public HandyFontLayoutFactory(Activity activity) {
-        this.mContext = activity;
-        if (activity instanceof AppCompatActivity) {
-            this.appCompatDelegate = ((AppCompatActivity) activity).getDelegate();
-        }
+    public HandyFontLayoutFactory(Context context) {
+        this.mContext = context;
         mFontAttribute = new FontAttribute();
+        if (context instanceof AppCompatActivity) {
+            this.appCompatDelegate = ((AppCompatActivity) context).getDelegate();
+        }
     }
 
     @Override

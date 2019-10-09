@@ -25,7 +25,7 @@ implementation 'com.yechy.handyfont:handyfont:1.0.1'
 
 ## Usage
 
-Firstly some configurations need to be setted, you can do it in your ```Application```. 
+Firstly copy font files to ```assets/font/``` directory. Some configurations need to be setted, you can do it in your ```Application```. 
 
 ```java
 private String chilanka_regular = "font/Chilanka-Regular.ttf";

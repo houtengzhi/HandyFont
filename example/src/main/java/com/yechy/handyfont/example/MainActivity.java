@@ -4,7 +4,6 @@ package com.yechy.handyfont.example;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -21,11 +20,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.yechy.handyfont.HandyCompat;
+import com.yechy.handyfont.HandyTypeface;
 
 public class MainActivity extends BaseActivity {
 
@@ -128,7 +126,7 @@ public class MainActivity extends BaseActivity {
         textView.setTextColor(Color.BLACK);
         textView.setText("Custom View");
         textView.setLayoutParams(layoutParams);
-        HandyCompat.setTypeface(textView, null);
+        HandyTypeface.setTypeface(textView, null);
         mContentLayout.addView(textView);
     }
 }

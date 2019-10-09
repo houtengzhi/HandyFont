@@ -18,7 +18,7 @@ public class HandyFontConfig {
     private boolean mDebuggable = false;
     private boolean mLoggable = false;
 
-    public static final String NULL_FONT_FAMILY = "null_font_family";
+    public static final String DEFAULT_FONT_FAMILY = "default_font_family";
 
     public static HandyFontConfig getInstance() {
         if (instance == null) {
@@ -31,13 +31,24 @@ public class HandyFontConfig {
         return instance;
     }
 
+    /**
+     *
+     * @param oldFontFamily
+     * @param newFontPath
+     * @return
+     */
     public HandyFontConfig addReplacedFont(String oldFontFamily, String newFontPath) {
         mReplacedMap.put(oldFontFamily, newFontPath);
         return this;
     }
 
-    public HandyFontConfig addReplaceDefaultFont(String newFontPath) {
-        mReplacedMap.put(NULL_FONT_FAMILY, newFontPath);
+    /**
+     *
+     * @param newFontPath
+     * @return
+     */
+    public HandyFontConfig addReplacedFontForDefaultFontFamily(String newFontPath) {
+        mReplacedMap.put(DEFAULT_FONT_FAMILY, newFontPath);
         return this;
     }
 
@@ -48,9 +59,9 @@ public class HandyFontConfig {
         return this;
     }
 
-    public HandyFontConfig removeDefaultReplacedFont() {
-        if (mReplacedMap.containsKey(NULL_FONT_FAMILY)) {
-            mReplacedMap.remove(NULL_FONT_FAMILY);
+    public HandyFontConfig removeReplacedFontForDefaultFontFamily() {
+        if (mReplacedMap.containsKey(DEFAULT_FONT_FAMILY)) {
+            mReplacedMap.remove(DEFAULT_FONT_FAMILY);
         }
         return this;
     }

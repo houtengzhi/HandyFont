@@ -36,22 +36,7 @@ public class FontAttribute {
             TextView tv = (TextView) view;
             String fontFamilt = resolveFontFamily(view.getContext(), attrs);
             if(loggable) Log.d(TAG, "loadAttribute, fontFamily=" + fontFamilt);
-            Typeface typeface = TypefaceUtil.getReplacedTypeface(view.getContext(), fontFamilt);
-            Typeface defaultTypeface = tv.getTypeface();
-            int defaultStyle = defaultTypeface != null ? defaultTypeface.getStyle() : 0;
-            if (typeface != null) {
-                tv.setTypeface(typeface, defaultStyle);
-            }
-            if (debuggable) {
-                final String ntext = "default font family: " + fontFamilt;
-//                view.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-//                    @Override
-//                    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-//                        menu.setHeaderTitle("View Property");
-//                        menu.add(1, 1, 1, ntext);
-//                    }
-//                });
-            }
+            HandyTypeface.setTypeface(tv, fontFamilt);
         }
 
         if (HandyUtil.canCheckForV7Toolbar() && view instanceof Toolbar) {

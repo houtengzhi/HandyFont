@@ -26,14 +26,13 @@ public class ExampleApp extends Application {
                 .setLogEnabled(true)
                 .setDebugEnabled(true)
                 .setReplaceEnabled(true)
-                .addReplaceDefaultFont(dancingScript_bold)
+                .addReplacedFontForDefaultFontFamily(dancingScript_bold)
                 .addReplacedFont(sans_serif, chilanka_regular)
                 .addReplacedFont(sans_serif_medium, dancingScript_regular);
     }
 
     @Override
     protected void attachBaseContext(Context base) {
-//        super.attachBaseContext(base);
         super.attachBaseContext(HandyContextWrapper.wrap(base));
     }
 }

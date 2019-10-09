@@ -28,6 +28,13 @@ implementation 'com.yechy.handyfont:handyfont:1.0.1'
 Firstly some configurations need to be setted, you can do it in your ```Application```. 
 
 ```java
+private String chilanka_regular = "font/Chilanka-Regular.ttf";
+private String dancingScript_bold = "font/DancingScript-Bold.ttf";
+private String dancingScript_regular = "font/DancingScript-Regular.ttf";
+
+private String sans_serif = "sans-serif";
+private String sans_serif_medium = "sans-serif-medium";
+
 HandyFontConfig.getInstance()
                 .setLogEnabled(true)
                 .setDebugEnabled(true)
@@ -37,10 +44,10 @@ HandyFontConfig.getInstance()
                 .addReplacedFont(sans_serif_medium, dancingScript_regular);
 ```
 
-Then replace the ```Activity``` contextwrapper with HandyContextWrapper:
+Then replace the ```Activity``` contextwrapper with ```HandyContextWrapper```:
 
 ```java
-@Override
+    @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(HandyContextWrapper.wrap(newBase, this));
     }
@@ -56,6 +63,20 @@ or
         super.onCreate(savedInstanceState);
     }
 ```
+For the fonts in ```ContextMenu```, need to replace the contextwrapper in ```Application```
+
+```java
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(HandyContextWrapper.wrap(base));
+    }
+```
+For the custom view created dynamically, it's need to be set typeface manually.
+
+```java
+HandyTypeface.setTypeface(textView, null);
+```
+
 
 ## Licence
 ```

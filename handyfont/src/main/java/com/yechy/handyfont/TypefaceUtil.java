@@ -20,7 +20,7 @@ public class TypefaceUtil {
     public static Typeface getReplacedTypeface(Context context, String fontFamily) {
         Map<String, String> map = HandyFontConfig.getInstance().getReplacedMap();
         if (isEmpty(fontFamily)) {
-            fontFamily = HandyFontConfig.NULL_FONT_FAMILY;
+            fontFamily = HandyFontConfig.DEFAULT_FONT_FAMILY;
         }
         if (!isEmpty(fontFamily) && map.containsKey(fontFamily)) {
             String fontPath = map.get(fontFamily);
